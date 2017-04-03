@@ -13,7 +13,7 @@
     "dependencies-test": "madge . --image img/dependencies-test.svg -x 'coverage|docs' --include-npm",
     "pages-index": "showdown makehtml -i README.md -o public/index.html",
     "pages": "./script/pages.sh",
-    "lint": "eslint --ignore-path .gitignore --fix .",
+    "lint": "eslint --ignore-path .gitignore --ignore-pattern dist* --fix .",
     "predocument": "rm -rf docs",
     "document": "jsdoc -c .jsdoc.json",
     "readme": "cat readme/* > README.md",
