@@ -6,29 +6,22 @@
   'use strict'
 
   /* imports */
-  var funAssert = require('fun-assert')
-  var guarded = require('guarded')
-
-  var isFunction = funAssert.type('Function')
-  var isArray = funAssert.type('Array')
+  var guard = require('./lib/guard')
+  var curry = require('./lib/curry')
 
   /* exports */
-  module.exports = guarded({
-    inputs: [isFunction, isArray],
-    f: apply,
-    output: funAssert.pass()
-  })
+  module.exports = curry(guard(apply))
 
   /**
    *
    * @function module:fun-apply.apply
    *
-   * @param {Function} f - function to apply args to
    * @param {Array} args - to apply to f
+   * @param {Function} f - function to apply args to
    *
    * @return {*} the result of f(...args)
    */
-  function apply (f, args) {
+  function apply (args, f) {
     return f.apply(null, args)
   }
 })()
