@@ -1,24 +1,25 @@
 {
   "name": "fun-apply",
   "version": "0.2.0",
-  "description": "(f, [a, b, ...]) -> f(a, b, ...)",
+  "description": "[a, b, ...] -> ((a, b, ...) -> z) -> z",
   "main": "src/index.js",
+  "browser": "dist/bundle.js",
   "scripts": {
     "pretest": "npm run lint",
     "test": "tap -Rtap --coverage-report=text-summary ./test/index.js",
     "coverage": "tap --coverage-report=lcov ./test/index.js",
     "predependencies": "mkdir -p img",
-    "dependencies": "madge . --image img/dependencies.svg -x 'test|coverage|docs' --include-npm",
+    "dependencies": "madge src --image img/dependencies.svg -x 'public|test|coverage|docs' --include-npm",
     "postdependencies": "npm run dependencies-test",
-    "dependencies-test": "madge . --image img/dependencies-test.svg -x 'coverage|docs' --include-npm",
+    "dependencies-test": "madge . --image img/dependencies-test.svg -x 'dist|public|coverage|docs' --include-npm",
     "pages-index": "showdown makehtml -i README.md -o public/index.html",
     "pages": "./script/pages.sh",
-    "lint": "eslint --ignore-path .gitignore --ignore-pattern dist* --fix .",
+    "lint": "eslint --ignore-path .gitignore --fix . --ignore-pattern dist",
     "predocument": "rm -rf docs",
     "document": "jsdoc -c .jsdoc.json",
+    "browserify": "browserify dist/entry.js --no-bf | uglifyjs > dist/bundle.js",
     "readme": "cat readme/* > README.md",
-    "preweb": "mkdir -p dist",
-    "web": "browserify src/index.js -o dist/fun-apply-$(node -pe \"require('./package').version\").js"
+    "next-update": "next-update -k true --tldr"
   },
   "repository": {
     "type": "git",
@@ -31,13 +32,18 @@
   },
   "homepage": "https://gitlab.com/bagrounds/fun-apply#README",
   "devDependencies": {
-    "eslint": "^3.18.0",
+    "browserify": "^14.3.0",
+    "eslint": "4.0.0-alpha.2",
+    "fun-predicate": "^0.16.0",
+    "fun-scalar": "^0.4.0",
+    "fun-test": "^0.22.2",
+    "fun-test-runner": "^0.8.2",
     "jsdoc": "^3.4.3",
     "madge": "^1.6.0",
-    "showdown": "^1.6.4",
-    "tap": "^10.3.1"
+    "tap": "10.3.2",
+    "uglify-js": "^3.0.5"
   },
   "dependencies": {
-    "json-stringify-safe": "^5.0.1"
+    "fun-curry": "^0.3.0"
   }
 }

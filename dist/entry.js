@@ -1,0 +1,2 @@
+funApply = require('../src')
+

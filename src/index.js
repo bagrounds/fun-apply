@@ -6,11 +6,10 @@
   'use strict'
 
   /* imports */
-  var guard = require('./lib/guard')
-  var curry = require('./lib/curry')
+  var curry = require('fun-curry')
 
   /* exports */
-  module.exports = curry(guard(apply))
+  module.exports = curry(apply)
 
   /**
    *

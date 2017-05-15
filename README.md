@@ -12,7 +12,7 @@
 
 ## [Test Coverage](https://bagrounds.gitlab.io/fun-apply/coverage/lcov-report/index.html)
 
-## [API Docs](https://bagrounds.gitlab.io/fun-apply/docs/index.html)
+## [API Docs](https://bagrounds.gitlab.io/fun-apply/index.html)
 
 ## Dependencies
 
