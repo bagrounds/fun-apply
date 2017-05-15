@@ -1,6 +1,6 @@
 # [fun-apply](https://bagrounds.gitlab.io/fun-apply)
 
-(f, [a, b, ...]) -> f(a, b, ...)
+[a, b, ...] -> ((a, b, ...) -> z) -> z
 
 [![build-status](https://gitlab.com/bagrounds/fun-apply/badges/master/build.svg)](https://gitlab.com/bagrounds/fun-apply/commits/master)
 [![coverage-report](https://gitlab.com/bagrounds/fun-apply/badges/master/coverage.svg)](https://gitlab.com/bagrounds/fun-apply/commits/master)
